@@ -1,42 +1,29 @@
 package pckg_uml_abs;
 
-public class SportGPMotor implements Veh{
+public class SportGPMotor extends VehCommon{
 
-    private String brand;
-    private String model;
 
-    private int id;
-
-    private static int cntID = 35;
-
-    public SportGPMotor(String brand, String model){
-        this.id = cntID++;
-        this.brand = brand;
-        this.model = model;
+    protected SportGPMotor(String brand, String model) {
+        super(brand, model);
     }
+
     @Override
     public void startVeh() {
-
-        System.out.println("GP Motor is starting... " + this.model);
-
+        System.out.println("Starting motor - " + this.id);
     }
 
     @Override
     public void stopVeh() {
-        System.out.println("GP Motor is stopped! " + this.model);
-    }
-
-    @Override
-    public String toString() {
-        return "SportGPMotor{" +
-                "brand='" + brand + '\'' +
-                ", model='" + model + '\'' +
-                ", id=" + id +
-                '}';
+        System.out.println("Stop motor - " + this.id);
     }
 
     @Override
     public void vehInfo() {
         System.out.println(this.toString());
+    }
+
+    @Override
+    protected void chageTires() {
+        System.out.println("Changing 2 tires!");
     }
 }
